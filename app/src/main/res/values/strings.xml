@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MovieDbChallenge</string>
+    <string name="release_date">Release Date: %s</string>
+    <string name="summary">Summary</string>
+</resources>
