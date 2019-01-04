@@ -50,13 +50,9 @@ public class MainActivity extends AppCompatActivity implements PopularMoviesAdap
 
     @Override
     public void itemClicked(Result result) {
-        ItemFragment fragment = new ItemFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString("movieTitle", result.getTitle());
-        bundle.putString("movieReleaseDate", result.getReleaseDate());
-        bundle.putString("movieOverview", result.getOverview());
-        bundle.putString("movieBackDropPath", result.getBackdropPath());
-        fragment.setArguments(bundle);
+        ItemFragment fragment = ItemFragment.getInstance(result.getTitle(),
+                result.getReleaseDate(), result.getOverview(),
+                result.getBackdropPath());
         fragment.show(getSupportFragmentManager(), Constants.BOTTOM_SHEET);
     }
 

@@ -9,12 +9,10 @@ import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.BottomSheetDialogFragment;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.widget.CircularProgressDrawable;
-import android.support.v4.widget.NestedScrollView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -25,6 +23,18 @@ import com.example.admin.moviedbchallenge.utils.Constants;
 public class ItemFragment extends BottomSheetDialogFragment {
 
     private FragmentItemBinding binding;
+
+    public static ItemFragment getInstance(String movieTitle,
+                                           String movieReleaseDate, String movieOverview, String movieBackDropPath) {
+        ItemFragment fragment = new ItemFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("movieTitle", movieTitle);
+        bundle.putString("movieReleaseDate", movieReleaseDate);
+        bundle.putString("movieOverview", movieOverview);
+        bundle.putString("movieBackDropPath", movieBackDropPath);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
 
     @Nullable
     @Override
